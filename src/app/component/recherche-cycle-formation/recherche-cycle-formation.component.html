@@ -1,0 +1,15 @@
+<div>
+
+    <h2>Choisir un cycle de formation</h2>
+
+    <div *ngIf='cycleDeFormationsFiltree && cycleDeFormationsFiltree.length'>
+
+        <span  *ngFor='let cycleDeFormation of cycleDeFormationsFiltree'>
+
+            <app-cycle-formation [cycleFormation]='cycleDeFormation'></app-cycle-formation>
+
+        </span>
+
+    </div>
+
+</div>

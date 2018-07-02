@@ -1,0 +1,37 @@
+<!-- affichage uniquement si le champ formationsBasiques est non null et contient des éléments-->
+
+<div class="entete">
+    <img class="vignette" src="{{cycleDeFormation.image}}">
+    <span class="titreCycleDeFormation">
+        {{cycleDeFormation.nom}}
+    </span>
+    <span class="descriptionCycleDeFormation">
+        {{cycleDeFormation.description}}
+    </span>
+</div>
+
+<div class="formation">
+
+    <div class="colonneFormation" *ngIf='formationsDebutantsFiltree && formationsDebutantsFiltree.length'>
+        <b>Débutant</b>
+        <span *ngFor='let formation of formationsDebutantsFiltree'>
+            <app-vignette-formation [formation]='formation'></app-vignette-formation>
+        </span>
+    </div>
+
+    <div class="colonneFormation" *ngIf='formationsIntermediairesFiltree && formationsIntermediairesFiltree.length'>
+        <b>Intermédiaire</b>
+        <span *ngFor='let formation of formationsIntermediairesFiltree'>
+            <app-vignette-formation [formation]='formation'></app-vignette-formation>
+        </span>
+    </div>
+
+    <div class="colonneFormation" *ngIf='formationsAvanceesFiltree && formationsAvanceesFiltree.length'>
+        <b>Avancée</b>
+        <span *ngFor='let formation of formationsAvanceesFiltree'>
+            <app-vignette-formation [formation]='formation'></app-vignette-formation>
+        </span>
+    </div>
+
+
+</div>

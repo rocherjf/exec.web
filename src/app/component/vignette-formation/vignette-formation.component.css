@@ -1,0 +1,16 @@
+.container{
+    border : solid 1rem;
+    border-color: #000080;
+    padding : 1rem 1rem 1rem 1rem;
+    width : 20rem;
+    min-height : 12rem;
+    max-height : 12rem;
+    margin : 0 1rem 1rem 0rem;
+    display:inline-block;
+}
+
+
+.lienDiscret {
+    text-decoration: none;
+    color: inherit;
+}

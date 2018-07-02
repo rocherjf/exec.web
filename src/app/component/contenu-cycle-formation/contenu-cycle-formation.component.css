@@ -1,0 +1,37 @@
+.colonneFormation {
+	display: flex;
+	flex-direction: column;
+}
+
+.formation {
+	display: flex;
+}
+
+.lienDiscret {
+    text-decoration: none;
+    color: inherit;
+}
+
+.entete{
+    border : solid 1rem;
+    border-color: #801a00;
+    padding : 1rem 1rem 1rem 1rem;
+
+    margin : 0 1rem 1rem 0rem;
+    display:inline-block;
+}
+
+.vignette {
+    float: left;
+    width: 10%;
+}
+
+.titreCycleDeFormation{
+    float: right;
+	width: 90%;
+	font: 5rem arial, sans-serif;
+}
+
+.descriptionCycleDeFormation{
+	clear: both;
+}
