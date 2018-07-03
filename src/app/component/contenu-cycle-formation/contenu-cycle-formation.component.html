@@ -14,21 +14,21 @@
 
     <div class="colonneFormation" *ngIf='formationsDebutantsFiltree && formationsDebutantsFiltree.length'>
         <b>Débutant</b>
-        <span *ngFor='let formation of formationsDebutantsFiltree'>
+        <span class="conteneur-vignette-formation" *ngFor='let formation of formationsDebutantsFiltree'>
             <app-vignette-formation [formation]='formation'></app-vignette-formation>
         </span>
     </div>
 
     <div class="colonneFormation" *ngIf='formationsIntermediairesFiltree && formationsIntermediairesFiltree.length'>
         <b>Intermédiaire</b>
-        <span *ngFor='let formation of formationsIntermediairesFiltree'>
+        <span class="conteneur-vignette-formation" *ngFor='let formation of formationsIntermediairesFiltree'>
             <app-vignette-formation [formation]='formation'></app-vignette-formation>
         </span>
     </div>
 
-    <div class="colonneFormation" *ngIf='formationsAvanceesFiltree && formationsAvanceesFiltree.length'>
+    <div  class="colonneFormation" *ngIf='formationsAvanceesFiltree && formationsAvanceesFiltree.length'>
         <b>Avancée</b>
-        <span *ngFor='let formation of formationsAvanceesFiltree'>
+        <span class="conteneur-vignette-formation" *ngFor='let formation of formationsAvanceesFiltree'>
             <app-vignette-formation [formation]='formation'></app-vignette-formation>
         </span>
     </div>

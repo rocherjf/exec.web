@@ -39,10 +39,23 @@ export class ContenuCycleFormationComponent implements OnInit {
       {
         id: '1',
         nom: 'formation debutant 1',
-        description: 'description 1'},
+        description: 'description 1',
+        image:'assets/debutant_4.jpg'},
+        
       {id: '2',
         nom: 'formation debutant 2',
-        description: 'description 2'}
+        description: 'description 2',
+        image:'assets/debutant_2.jpg'},
+
+      {id: '3',
+        nom: 'formation debutant 3',
+        description: 'description 3',
+        image:'assets/debutant_3.jpg'},
+
+        {id: '4',
+        nom: 'formation debutant 4',
+        description: 'description 4',
+        image:'assets/debutant_1.jpg'}
     ];
     this.formationsDebutantsFiltree = this.formationsDebutants;
   
@@ -52,15 +65,18 @@ export class ContenuCycleFormationComponent implements OnInit {
       {
         id: '1',
         nom: 'formation intermédiaire 1',
-        description: 'description formation intermédiaire 1'},
+        description: 'description formation intermédiaire 1',
+        image:'assets/intermediaire_1.jpg'},
       {
         id: '2',
         nom: 'formation intermédiaire 2',
-        description: 'description formation intermédiaire 2'},
+        description: 'description formation intermédiaire 2',
+        image:'assets/intermediaire_3.jpg'},
       {
         id: '3',
         nom: 'formation intermédiaire 3',
-         description: 'description formation intermédiaire 3'}
+         description: 'description formation intermédiaire 3',
+         image:'assets/intermediaire_2.jpg'},
     ];
 
     this.formationsIntermediairesFiltree = this.formationsIntermediaires;
@@ -70,10 +86,12 @@ export class ContenuCycleFormationComponent implements OnInit {
       {
         id: '1',
         nom: 'formation avancee 1',
-        description: 'description formation avancee 1'},
+        description: 'description formation avancee 1',
+        image:'assets/avancee_1.jpg'},
       {id: '2',
         nom: 'formation avancee 2',
-        description: 'description formation avancee 2'}
+        description: 'description formation avancee 2',
+        image:'assets/avancee_2.jpg'}
     ];
     this.formationsAvanceesFiltree = this.formationsAvancees;
 

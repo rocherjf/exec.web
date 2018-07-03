@@ -35,3 +35,8 @@
 .descriptionCycleDeFormation{
 	clear: both;
 }
+
+.conteneur-vignette-formation{
+    margin:0 1rem 1rem 0;
+    background-color:#FEFEE2;
+}
