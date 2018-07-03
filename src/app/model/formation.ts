@@ -3,4 +3,5 @@ export interface IFormation {
     nom: string;
     description: string;
     image : string;
+    progression : number;
 }
