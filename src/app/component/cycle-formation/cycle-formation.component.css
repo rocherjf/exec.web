@@ -7,16 +7,20 @@
     max-height : 12rem;
     margin : 0 1rem 1rem 0rem;
     display:inline-block;
+    overflow: hidden;
 }
 
 .vignette {
     float: left;
-    width: 30%;
+    height:5rem;
+
 }
 
 .titreCycleFormation{
     float: right;
     width: 65%;
+    font-weight: bold;
+    font-size: large;
 }
 
 .descriptionCycleFormation{
