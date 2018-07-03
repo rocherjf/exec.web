@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FormationComponent implements OnInit {
 
   md: string;
+  md2: string;
 
   constructor() { }
 
@@ -25,6 +26,21 @@ var obj = {
 };
 
 obj.foo;	// [1,2,3]
+\`\`\`
+`;
+
+this.md2 =` 
+# Titre 1
+## Sous titre 1
+Du code JAVA :
+\`\`\`java
+class ClasseMain{
+
+  public static void main(String[] args){ 
+    //Vos données, variables, différents traitements…
+  }//Fin de la méthode main
+
+}//Fin de votre classe
 \`\`\`
 `;
 

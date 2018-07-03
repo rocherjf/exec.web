@@ -31,13 +31,12 @@ export class MarkdownComponent implements OnInit {
     // `highlight` example uses `highlight.js`
     myMarked.setOptions({
       renderer: new myMarked.Renderer(),
-      highlight: function(code) {
-        console.log(`code : ${code}`);
-        console.log(`code : ${highlightjs.highlightAuto(code).value}`);
-        return highlightjs.highlightAuto(code).value;
+      langPrefix: 'language-',
+      gfm: true,
+      highlight: function(code,...arg) {
+        return highlightjs.highlight('js',code).value;
       },
       pedantic: false,
-      gfm: true,
       tables: true,
       breaks: false,
       sanitize: false,
