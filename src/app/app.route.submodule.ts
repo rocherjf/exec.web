@@ -6,15 +6,17 @@ import { RechercheCycleFormationComponent } from './component/recherche-cycle-fo
 import {AccueilComponent} from './component/accueil/accueil.component';
 import {ContenuCycleFormationComponent} from './component/contenu-cycle-formation/contenu-cycle-formation.component';
 import {VignetteFormationComponent} from './component/vignette-formation/vignette-formation.component';
+import {FormationComponent} from './component/formation/formation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: 'accueil', component: AccueilComponent },
   { path: 'recherche-cycle-formation', component: RechercheCycleFormationComponent },
   { path: 'contenu-cycle-formation/:id', component: ContenuCycleFormationComponent },
-  { path: 'formation/:id', component: VignetteFormationComponent },
+  { path: 'cycle-formation/:id', component: VignetteFormationComponent },
   { path: 'tests', component: TestsComponent },
   { path: 'test', component: TestComponent },
+  { path: 'formation/:id', component: FormationComponent },
 ];
 
 @NgModule({

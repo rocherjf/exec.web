@@ -9,7 +9,6 @@ import { ICycleFormation } from 'src/app/model/cycle-formation';
 export class RechercheCycleFormationComponent implements OnInit {
 
   titrePage: string = `Choix d'un cycle de formation`;
-  languages: Object[];
 
   cycleDeFormations : ICycleFormation[];
   cycleDeFormationsFiltree : ICycleFormation[];

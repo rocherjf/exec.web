@@ -13,6 +13,8 @@ import { ContenuCycleFormationComponent } from './component/contenu-cycle-format
 import { RechercheCycleFormationComponent } from './component/recherche-cycle-formation/recherche-cycle-formation.component';
 import { AccueilComponent } from './component/accueil/accueil.component';
 import { CycleFormationComponent } from './component/cycle-formation/cycle-formation.component';
+import { FormationComponent } from './component/formation/formation.component';
+import { MarkdownComponent } from './component/markdown/markdown.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { CycleFormationComponent } from './component/cycle-formation/cycle-forma
     ContenuCycleFormationComponent,
     RechercheCycleFormationComponent,
     AccueilComponent,
-    CycleFormationComponent
+    CycleFormationComponent,
+    FormationComponent,
+    MarkdownComponent
   ],
   imports: [
     // Angular
