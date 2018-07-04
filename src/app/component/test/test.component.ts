@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TestsService} from '../../service/tests.service';
 import {Test} from '../tests/bean/test';
+import {TestRunnerService} from '../../service/test.runner.service';
 
 @Component({
   selector: 'app-test',
@@ -15,12 +16,17 @@ export class TestComponent implements OnInit {
 
   constructor(
     private ngRoute: ActivatedRoute,
-    private testService: TestsService) {
+    private testService: TestsService,
+    private testRunnerService: TestRunnerService) {
   }
 
-  async ngOnInit() {
+  public async ngOnInit() {
     this.id = this.ngRoute.snapshot.paramMap.get('id');
     this.test = await this.testService.getTest(this.id);
     console.log(this.test);
+  }
+
+  public onClickRunTest() {
+    this.testRunnerService.connect();
   }
 }
