@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {TestsService} from '../../service/tests.service';
+import {Test} from '../tests/bean/test';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  private id: string;
+  private test: Test;
 
-  ngOnInit() {
+  constructor(
+    private ngRoute: ActivatedRoute,
+    private testService: TestsService) {
   }
 
+  async ngOnInit() {
+    this.id = this.ngRoute.snapshot.paramMap.get('id');
+    this.test = await this.testService.getTest(this.id);
+    console.log(this.test);
+  }
 }

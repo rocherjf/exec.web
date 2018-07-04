@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'contenu-cycle-formation/:id', component: ContenuCycleFormationComponent },
   { path: 'cycle-formation/:id', component: VignetteFormationComponent },
   { path: 'tests', component: TestsComponent },
-  { path: 'test', component: TestComponent },
+  { path: 'test/:id', component: TestComponent },
   { path: 'formation/:id', component: FormationComponent },
 ];
 

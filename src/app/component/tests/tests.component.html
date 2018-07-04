@@ -1,3 +1,8 @@
 <p>
   tests works!
 </p>
+
+<ul>
+  <li *ngFor='let test of tests' [routerLink]='["/test", test.id]'> {{test.title}}</li>
+</ul>
+
