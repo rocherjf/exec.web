@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Test} from '../component/tests/bean/test';
+import {TestInfos} from '../component/tests/bean/export.bean';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class TestsService {
     private http: HttpClient) {
   }
 
-  public async getTests(): Promise<Test[]> {
-    return this.http.get<Test[]>(this.testsUrl).toPromise();
+  public async getTests(): Promise<TestInfos[]> {
+    return this.http.get<TestInfos[]>(this.testsUrl).toPromise();
   }
 
-  public async getTest(id: string): Promise<Test> {
-    return this.http.get<Test>(`${this.testUrl}/${id}`).toPromise();
+  public async getTest(id: string): Promise<TestInfos> {
+    return this.http.get<TestInfos>(`${this.testUrl}/${id}`).toPromise();
   }
 
 

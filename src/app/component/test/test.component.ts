@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TestsService} from '../../service/tests.service';
-import {Test} from '../tests/bean/test';
 import {TestRunnerService} from '../../service/test.runner.service';
+import {Observable, Subject} from 'rxjs';
+import {TestInfos} from '../tests/bean/export.bean';
 
 @Component({
   selector: 'app-test',
@@ -12,7 +13,7 @@ import {TestRunnerService} from '../../service/test.runner.service';
 export class TestComponent implements OnInit {
 
   private id: string;
-  private test: Test;
+  private test: TestInfos;
 
   constructor(
     private ngRoute: ActivatedRoute,
@@ -26,7 +27,20 @@ export class TestComponent implements OnInit {
     console.log(this.test);
   }
 
-  public onClickRunTest() {
-    this.testRunnerService.connect();
+  public async onClickRunTest() {
+    const obs: Observable<any> = await this.testRunnerService.test({
+      id: this.id,
+      codes: [
+        {
+          tag: 'tag',
+          code: 'fffds'
+        }
+
+      ]
+    });
+
+    obs.subscribe((v) => console.log(v));
+
+
   }
 }

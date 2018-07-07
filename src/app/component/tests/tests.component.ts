@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TestsService} from '../../service/tests.service';
-import {Test} from './bean/test';
+import {TestInfos} from './bean/export.bean';
 
 @Component({
   selector: 'app-tests',
@@ -9,7 +9,7 @@ import {Test} from './bean/test';
 })
 export class TestsComponent implements OnInit {
 
-  private tests: Test[];
+  private tests: TestInfos[];
 
   constructor(private testsService: TestsService) {
   }

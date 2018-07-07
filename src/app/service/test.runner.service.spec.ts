@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { Test.RunnerService } from './test.runner.service';
 
-describe('Test.RunnerService', () => {
+describe('TestInfos.RunnerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [Test.RunnerService]

@@ -1,9 +1,14 @@
 <div *ngIf='test'>
-  <h1>{{test.title}}</h1>
-  <h2>{{test.groupTitle}}</h2>
-
+  <header>
+    <h1>{{test.title}}</h1>
+    <h2>{{test.groupTitle}}</h2>
+  </header>
+  <details open>
+    <summary>Descriptif</summary>
+    {{test.descriptif}}
+  </details>
   <details *ngFor='let tag of test.tags' open>
-    <summary>{{tag.code}}</summary>
+    <summary>{{tag.title}}</summary>
     <textarea
       rows='10' cols='50'>{{tag.template}}</textarea>
   </details>
