@@ -33,15 +33,21 @@ export class MarkdownComponent implements OnInit {
       renderer: new myMarked.Renderer(),
       langPrefix: 'language-',
       gfm: true,
-      highlight: function(code,...arg) {
-        return highlightjs.highlight('js',code).value;
+      highlight: function(code, lang) {
+        if (typeof lang === 'undefined') {
+          return highlightjs.highlightAuto(code).value;
+        } else if (lang === 'nohighlight') {
+          return code;
+        } else {
+          return highlightjs.highlight(lang, code).value;
+        }
       },
       pedantic: false,
       tables: true,
-      breaks: false,
-      sanitize: false,
+      breaks: true,
+      sanitize: true,
       smartLists: true,
-      smartypants: false
+      smartypants: true
     });
 
     this.markdownHtml = myMarked.parse(this.markdown);
