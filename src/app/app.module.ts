@@ -16,6 +16,7 @@ import {CycleFormationComponent} from './component/cycle-formation/cycle-formati
 import {FormationComponent} from './component/formation/formation.component';
 import {MarkdownComponent} from './component/markdown/markdown.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     // Angular
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     // Routing

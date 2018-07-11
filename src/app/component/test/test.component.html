@@ -1,16 +1,19 @@
 <div *ngIf='test'>
   <header>
-    <h1>{{test.title}}</h1>
-    <h2>{{test.groupTitle}}</h2>
+    <h1>{{test.wsInfos.title}}</h1>
+    <h2>{{test.wsInfos.groupTitle}}</h2>
   </header>
   <details open>
     <summary>Descriptif</summary>
-    {{test.descriptif}}
+    {{test.wsInfos.descriptif}}
   </details>
-  <details *ngFor='let tag of test.tags' open>
-    <summary>{{tag.title}}</summary>
-    <textarea
-      rows='10' cols='50'>{{tag.template}}</textarea>
+  <details *ngFor='let code of test.uiCodes' open>
+    <summary>{{code.wsCode.title}}</summary>
+
+    <textarea [(ngModel)]="code.uiInput"
+      rows='10' cols='50'>
+
+    </textarea>
   </details>
 
   <div (click)='onClickRunTest()'>Run test</div>

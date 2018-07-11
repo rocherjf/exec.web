@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, Observer, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {WebsocketService} from './websocket.service';
-import {TestParam} from '../component/tests/bean/export.bean';
+import {TestParam} from '../component/tests/bean/exec.api.bean';
 
 @Injectable({
   providedIn: 'root'

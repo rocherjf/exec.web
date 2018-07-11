@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {TestInfos} from '../component/tests/bean/export.bean';
+import {TestInfos} from '../component/tests/bean/exec.api.bean';
 
 @Injectable({
   providedIn: 'root'

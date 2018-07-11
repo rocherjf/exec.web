@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TestsService} from '../../service/tests.service';
-import {TestInfos} from './bean/export.bean';
+import {TestInfos} from './bean/exec.api.bean';
 
 @Component({
   selector: 'app-tests',
