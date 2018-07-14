@@ -2,8 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TestsService} from '../../service/tests.service';
 import {Observable} from 'rxjs';
-import {TestCode, TestInfo, TestInfos, TestParam} from '../tests/bean/exec.api.bean';
+import {TestInfos} from '../../api/test.http.api';
 import {TestUiBean, UiCode} from './bean/test.ui.bean';
+import {TestCode, TestInfo, TestParam} from '../../api/test.ws.api';
 
 class Log {
   isError?: boolean;
@@ -22,7 +23,7 @@ class Log {
 export class TestComponent implements OnInit {
   @Input() id: string;
   private test: TestUiBean;
-  private logs: Log[] = [];
+  private logs: Log[];
 
   constructor(
     private ngRoute: ActivatedRoute,

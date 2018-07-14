@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TestsService} from '../../service/tests.service';
-import {TestInfos} from './bean/exec.api.bean';
+import {TestInfos} from '../../api/test.http.api';
 
 @Component({
   selector: 'app-tests',
@@ -16,7 +16,6 @@ export class TestsComponent implements OnInit {
 
   public async ngOnInit() {
     this.tests = await this.testsService.getTests();
-    console.log(this.tests);
   }
 
 }

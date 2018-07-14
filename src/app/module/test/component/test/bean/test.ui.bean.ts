@@ -1,4 +1,6 @@
-import {Code, TestInfo, TestInfos} from '../../tests/bean/exec.api.bean';
+import {TestInfos} from '../../../api/test.http.api';
+import {Code} from '../../../api/test.ws.api';
+
 
 export class UiCode {
   wsCode: Code;

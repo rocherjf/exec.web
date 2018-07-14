@@ -1,11 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
+
 import {NgModule} from '@angular/core';
 
-import {AppComponent} from './component/app.component';
+import {AppComponent} from './page/app/app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRouteSubmodule} from './app.route.submodule';
-import {TestsComponent} from './component/tests/tests.component';
-import {TestComponent} from './component/test/test.component';
 
 import {VignetteFormationComponent} from './component/vignette-formation/vignette-formation.component';
 import {ExerciceComponent} from './component/exercice/exercice.component';
@@ -15,14 +13,12 @@ import {AccueilComponent} from './component/accueil/accueil.component';
 import {CycleFormationComponent} from './component/cycle-formation/cycle-formation.component';
 import {FormationComponent} from './component/formation/formation.component';
 import {MarkdownComponent} from './component/markdown/markdown.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {CommonModule} from './module/common/common.module';
+import {TestModule} from './module/test/test.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestsComponent,
-    TestComponent,
     VignetteFormationComponent,
     ExerciceComponent,
     ContenuCycleFormationComponent,
@@ -33,13 +29,13 @@ import {FormsModule} from '@angular/forms';
     MarkdownComponent
   ],
   imports: [
-    // Angular
-    BrowserModule,
-    FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    // Routing
+    // Routing principal
     AppRouteSubmodule,
+    // Module en commun
+    CommonModule,
+    // Module pour les tests
+    TestModule
   ],
   providers: [],
   bootstrap: [AppComponent]
