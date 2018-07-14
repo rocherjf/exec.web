@@ -8,18 +8,15 @@
     <summary>Descriptif</summary>
     {{test.wsInfos.descriptif}}
   </details>
-  <details *ngFor='let code of test.uiCodes' open>
-    <summary>{{code.wsCode.title}}</summary>
+  <div *ngFor='let code of test.uiCodes'
+       class='editor'>
+    <!--{{code.wsCode.title}}-->
 
-    <textarea title='Code' type='text'
-              [(ngModel)]="code.uiInput"
-              rows='10'
-              class='inputArea'
-    >
-    </textarea>
+    <app-code-mirror
+      [(value)]='code.uiInput'></app-code-mirror>
 
 
-  </details>
+  </div>
 
   <button (click)='onClickRunTest()'>Run test</button>
 
@@ -34,5 +31,3 @@
   </details>
 </div>
 
-
-<div [routerLink]='["/tests"]'>Retour</div>

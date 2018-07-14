@@ -2,13 +2,16 @@
   Liste des tests
 </p>
 
-<ul>
-  <li *ngFor='let test of tests' >
-    <details>
-      <summary>{{test.title}}</summary>
-    <app-test [id]='test.id'></app-test>
+<ul class='tests'>
+  <li class='test-wrapper' *ngFor='let test of tests' >
+    <details open>
+      <summary class='test-title'>{{test.title}}</summary>
+    <app-test class='test' [id]='test.id'></app-test>
     </details>
   </li>
+
+
+
 
 
 

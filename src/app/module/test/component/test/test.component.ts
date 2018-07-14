@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TestsService} from '../../service/tests.service';
 import {Observable} from 'rxjs';
@@ -20,8 +20,24 @@ class Log {
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
+export class TestComponent implements OnInit, AfterViewInit {
   @Input() id: string;
+
+  //@ViewChild('TestArea', {read: ElementRef}) testArea: ElementRef;
+
+
+  /*set testArea(*/
+  /*{
+     if (testArea == null) return;*/
+  /*
+      const editor = CodeMirror.fromTextArea(testArea.nativeElement, {
+        lineNumbers: true,
+        value : 'POUET '
+      });*/
+  // debugger;
+  //console.log(testArea.nativeElement);
+  /*}*/
+
   private test: TestUiBean;
   private logs: Log[];
 
@@ -30,10 +46,24 @@ export class TestComponent implements OnInit {
     private testService: TestsService) {
   }
 
+  public ngAfterViewInit() {
+
+
+  }
+
   public async ngOnInit() {
+    //
+
+    /*let element = document.getElementById('TestArea');
+    debugger;
+    const editor = CodeMirror.fromTextArea(element, {
+      lineNumbers: true
+    });*/
+
     // Requetage pour avoir les infos du test
     const wsTest = await this.testService.getTest(this.id);
     this.test = this.mapWsToUi(wsTest);
+
   }
 
   private mapWsToUi(ws: TestInfos): TestUiBean {
@@ -65,34 +95,39 @@ export class TestComponent implements OnInit {
 
   public async onClickRunTest() {
 
-    this.logs = [];
+        this.logs = [];
 
-    const obs: Observable<TestInfo> = await this.testService.runTest(this.mapUiToWs(this.test));
+        const obs: Observable<TestInfo> = await this.testService.runTest(this.mapUiToWs(this.test));
 
-    obs.subscribe((l) => {
-      this.logs.push({
-        isError: l.log && l.log.isError,
-        isInfo: l.log && l.log.isInfo,
-        isResultOk: l.result && l.result.success,
-        isResultFail: l.result && !l.result.success,
-        message:
-        (l.log && l.log.message) ||
-        `Resultat ${l.result.success ? 'OK' : 'KO'} : ${JSON.stringify(l.result.in)} => ${JSON.stringify(l.result.out)}`
-      })
-      ;
-    }, (e: Error) => {
-      console.log(e);
-      this.logs.push({
-        isError: true,
-        message: `Erreur : ${e.message}`
-      });
-    }, () => {
-      this.logs.push({
-        isInfo: true,
-        message: `Fin`
-      });
-    });
+        obs.subscribe((l) => {
+          this.logs.push({
+            isError: l.log && l.log.isError,
+            isInfo: l.log && l.log.isInfo,
+            isResultOk: l.result && l.result.success,
+            isResultFail: l.result && !l.result.success,
+            message:
+            (l.log && l.log.message) ||
+            `Resultat ${l.result.success ? 'OK' : 'KO'} : ${JSON.stringify(l.result.in)} => ${JSON.stringify(l.result.out)}`
+          })
+          ;
+        }, (e: Error) => {
+          console.log(e);
+          this.logs.push({
+            isError: true,
+            message: `Erreur : ${e.message}`
+          });
+        }, () => {
+          this.logs.push({
+            isInfo: true,
+            message: `Fin`
+          });
+        });
 
+
+   /* const editor = CodeMirror.fromTextArea(this.testArea.nativeElement, {
+      lineNumbers: true,
+      value: 'POUET '
+    });*/
 
   }
 }
