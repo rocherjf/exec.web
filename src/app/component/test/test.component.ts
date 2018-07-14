@@ -1,10 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TestsService} from '../../service/tests.service';
-import {TestRunnerService} from '../../service/test.runner.service';
-import {Observable, Subject} from 'rxjs';
-import {TestCode, TestInfos, TestParam} from '../tests/bean/exec.api.bean';
+import {Observable} from 'rxjs';
+import {TestCode, TestInfo, TestInfos, TestParam} from '../tests/bean/exec.api.bean';
 import {TestUiBean, UiCode} from './bean/test.ui.bean';
+
+class Log {
+  isError?: boolean;
+  isInfo?: boolean;
+  isResultOk?: boolean;
+  isResultFail?: boolean;
+  message: string;
+}
+
 
 @Component({
   selector: 'app-test',
@@ -12,19 +20,16 @@ import {TestUiBean, UiCode} from './bean/test.ui.bean';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-
-  private id: string;
+  @Input() id: string;
   private test: TestUiBean;
+  private logs: Log[] = [];
 
   constructor(
     private ngRoute: ActivatedRoute,
-    private testService: TestsService,
-    private testRunnerService: TestRunnerService) {
+    private testService: TestsService) {
   }
 
   public async ngOnInit() {
-    // Recuperation de l'id du test
-    this.id = this.ngRoute.snapshot.paramMap.get('id');
     // Requetage pour avoir les infos du test
     const wsTest = await this.testService.getTest(this.id);
     this.test = this.mapWsToUi(wsTest);
@@ -59,9 +64,33 @@ export class TestComponent implements OnInit {
 
   public async onClickRunTest() {
 
-    const obs: Observable<any> = await this.testRunnerService.test(this.mapUiToWs(this.test));
+    this.logs = [];
 
-    obs.subscribe((v) => console.log(v));
+    const obs: Observable<TestInfo> = await this.testService.runTest(this.mapUiToWs(this.test));
+
+    obs.subscribe((l) => {
+      this.logs.push({
+        isError: l.log && l.log.isError,
+        isInfo: l.log && l.log.isInfo,
+        isResultOk: l.result && l.result.success,
+        isResultFail: l.result && !l.result.success,
+        message:
+        (l.log && l.log.message) ||
+        `Resultat ${l.result.success ? 'OK' : 'KO'} : ${JSON.stringify(l.result.in)} => ${JSON.stringify(l.result.out)}`
+      })
+      ;
+    }, (e: Error) => {
+      console.log(e);
+      this.logs.push({
+        isError: true,
+        message: `Erreur : ${e.message}`
+      });
+    }, () => {
+      this.logs.push({
+        isInfo: true,
+        message: `Fin`
+      });
+    });
 
 
   }

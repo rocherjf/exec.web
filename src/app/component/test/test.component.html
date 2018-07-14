@@ -1,4 +1,5 @@
-<div *ngIf='test'>
+
+<div *ngIf='test' class='wrapper'>
   <header>
     <h1>{{test.wsInfos.title}}</h1>
     <h2>{{test.wsInfos.groupTitle}}</h2>
@@ -10,13 +11,28 @@
   <details *ngFor='let code of test.uiCodes' open>
     <summary>{{code.wsCode.title}}</summary>
 
-    <textarea [(ngModel)]="code.uiInput"
-      rows='10' cols='50'>
-
+    <textarea title='Code' type='text'
+              [(ngModel)]="code.uiInput"
+              rows='10'
+              class='inputArea'
+    >
     </textarea>
+
+
   </details>
 
-  <div (click)='onClickRunTest()'>Run test</div>
+  <button (click)='onClickRunTest()'>Run test</button>
 
+  <details open>
+    <summary>Console</summary>
+    <pre *ngFor='let log of logs' class='log' [ngClass]='{
+    "error":log.isError,
+    "info":log.isInfo,
+    "ok":log.isResultOk,
+    "ko":log.isResultFail
+    }'>{{log.message}}</pre>
+  </details>
 </div>
+
+
 <div [routerLink]='["/tests"]'>Retour</div>
