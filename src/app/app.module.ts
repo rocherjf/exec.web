@@ -14,7 +14,7 @@ import {CycleFormationComponent} from './component/cycle-formation/cycle-formati
 import {FormationComponent} from './component/formation/formation.component';
 import {MarkdownComponent} from './component/markdown/markdown.component';
 import {CommonModule} from './module/common/common.module';
-import {TestModule} from './module/test/test.module';
+import {ExecModule} from './module/exec/exec.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import {TestModule} from './module/test/test.module';
     // Module en commun
     CommonModule,
     // Module pour les tests
-    TestModule
+    ExecModule
   ],
   providers: [],
   bootstrap: [AppComponent]

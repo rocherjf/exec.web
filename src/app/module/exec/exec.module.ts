@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '../common/common.module';
-import {TestRouteSubmodule} from './test.route.submodule';
+import {ExecRouteSubmodule} from './exec-route-submodule.module';
 import {TestComponent} from './component/test/test.component';
-import {TestsComponent} from './component/tests/tests.component';
+import {TestsComponent} from './page/tests/tests.component';
+import { ExecComponent } from './component/exec/exec.component';
+
 @NgModule({
   imports: [
     CommonModule,
 
     // Routing
-    TestRouteSubmodule,
+    ExecRouteSubmodule,
 
     //
   ],
   declarations: [
     TestComponent,
+    ExecComponent,
     TestsComponent
   ],
 
 })
-export class TestModule { }
+export class ExecModule { }
