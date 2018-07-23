@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import * as marked from 'marked';
-import { Options } from 'selenium-webdriver/firefox';
+import * as myMarked from 'marked';
+
+import highlightjs from 'highlight.js';
+
+
 
 @Component({
   selector: 'app-markdown',
@@ -13,23 +16,41 @@ export class MarkdownComponent implements OnInit {
   @Input()
   markdown: string;
 
+
   markdownHtml: string;
 
-  private option : marked.MarkedOptions;
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit() {
+    // Create reference instance
+    
 
-
-    //this.option.gfm =true;
-
-    marked.setOptions({
+    // Set options
+    // `highlight` example uses `highlight.js`
+    myMarked.setOptions({
+      renderer: new myMarked.Renderer(),
+      langPrefix: 'language-',
       gfm: true,
+      highlight: function(code, lang) {
+        if (typeof lang === 'undefined') {
+          return highlightjs.highlightAuto(code).value;
+        } else if (lang === 'nohighlight') {
+          return code;
+        } else {
+          return highlightjs.highlight(lang, code).value;
+        }
+      },
+      pedantic: false,
       tables: true,
-  });
+      breaks: true,
+      sanitize: true,
+      smartLists: true,
+      smartypants: true
+    });
 
-    this.markdownHtml = marked.parse(this.markdown);
+    this.markdownHtml = myMarked.parse(this.markdown);
   }
 
 }
