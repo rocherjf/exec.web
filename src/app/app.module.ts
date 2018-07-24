@@ -15,6 +15,9 @@ import { AccueilComponent } from './component/accueil/accueil.component';
 import { CycleFormationComponent } from './component/cycle-formation/cycle-formation.component';
 import { FormationComponent } from './component/formation/formation.component';
 import { MarkdownComponent } from './component/markdown/markdown.component';
+import { BarreNavigationComponent } from './component/barre-navigation/barre-navigation.component';
+import { CreationUtilisateurComponent } from './component/creation-utilisateur/creation-utilisateur.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { MarkdownComponent } from './component/markdown/markdown.component';
     AccueilComponent,
     CycleFormationComponent,
     FormationComponent,
-    MarkdownComponent
+    MarkdownComponent,
+    BarreNavigationComponent,
+    CreationUtilisateurComponent,
+    LoginComponent
   ],
   imports: [
     // Angular
