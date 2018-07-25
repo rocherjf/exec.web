@@ -1,0 +1,33 @@
+
+<div *ngIf='test' class='wrapper'>
+  <header>
+    <h1>{{test.wsInfos.title}}</h1>
+    <h2>{{test.wsInfos.groupTitle}}</h2>
+  </header>
+  <details open>
+    <summary>Descriptif</summary>
+    {{test.wsInfos.descriptif}}
+  </details>
+  <div *ngFor='let code of test.uiCodes'
+       class='editor'>
+    <!--{{code.wsCode.title}}-->
+
+    <app-code-mirror
+      [(value)]='code.uiInput'></app-code-mirror>
+
+
+  </div>
+
+  <button (click)='onClickRunTest()'>Run test</button>
+
+  <details open>
+    <summary>Console</summary>
+    <pre *ngFor='let log of logs' class='log' [ngClass]='{
+    "error":log.isError,
+    "info":log.isInfo,
+    "ok":log.isResultOk,
+    "ko":log.isResultFail
+    }'>{{log.message}}</pre>
+  </details>
+</div>
+

@@ -1,0 +1,30 @@
+.wrapper {
+  display: block;
+  border: 1px rgba(90%,90%,90%,1) solid;
+
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+
+
+.log{
+  padding: 2px;
+}
+.log.error{
+  background-color: red;
+}
+.log.info{
+  background-color: lightgrey;
+}
+.log.ok{
+  background-color: greenyellow;
+}
+.log.ko{
+  background-color: orange;
+}
+
