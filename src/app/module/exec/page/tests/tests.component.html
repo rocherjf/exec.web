@@ -1,0 +1,25 @@
+<p>
+  Liste des tests
+</p>
+
+<ul class='tests'>
+  <li class='test-wrapper' *ngFor='let test of tests'>
+    <details open>
+      <summary class='test-title'>{{test.title}}</summary>
+      <app-test class='test' [id]='test.id'></app-test>
+    </details>
+  </li>
+</ul>
+
+
+<p>
+  Executions
+</p>
+
+<app-exec class='test' idImage='simple-js'
+          code="console.log('Hello World');"></app-exec>
+
+<app-exec class='test' idImage='simple-java'
+          code=" "></app-exec>
+
+
