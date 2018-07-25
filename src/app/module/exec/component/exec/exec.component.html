@@ -4,7 +4,7 @@
   </header>
   <div *ngFor='let code of uiCodeToInject'
        class='editor'>
-    <h2>{{code.filePath}}</h2>
+    <input type='text' [(ngModel)]='code.filePath' />
 
     <app-code-mirror
       [(value)]='code.code'></app-code-mirror>

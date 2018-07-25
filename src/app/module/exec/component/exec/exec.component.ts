@@ -14,19 +14,20 @@ export class ExecComponent implements OnInit {
 
   // Id de l'image vers laquelle sera teste le code
   @Input() idImage: string;
+  @Input() code: string;
 
   // todo template ?
   // todo default file
-  private uiCodeToInject: FileToInject[];
+  public uiCodeToInject: FileToInject[];
 
-  private logs: ExecLog[];
+  public logs: ExecLog[];
 
   constructor(
     private execService: ExecService) {
   }
 
   public async ngOnInit() {
-    console.log('Affcihage du composant ExecComponent', this.idImage);
+    console.log('Affichage du composant ExecComponent', this.idImage);
     //
 
     // Todo Requetage pour avoir les infos pour cette image ?
@@ -37,7 +38,7 @@ export class ExecComponent implements OnInit {
   private initUi(): void {
     this.uiCodeToInject = [{
       filePath: 'src/index.js',
-      code: ' console.log(\'Hello World\');'
+      code: this.code
     }];
 
   }
